@@ -14,15 +14,16 @@ public class FrameTable extends JFrame {
 	
 	public FrameTable () {
 		super("Roupas");
-		RoupasDAO dao = new RoupasDAO();
-		RoupasTableModel tm = new RoupasTableModel(dao);
-		JTable t = new JTable(tm);
+		//RoupasDAO dao = new RoupasDAO();
+		//RoupasTableModel tm = new RoupasTableModel(dao);
+		//JTable t = new JTable(tm);
+		JTable t = new JTable(new GenericTableModel<Filme>(new FilmeDAO()));
 		JScrollPane scroll = new JScrollPane();
 		scroll.setViewportView(t);
 		add(scroll);
 		setSize(200,200);
 		
-		JPanel pan = new JPanel();
+		/*JPanel pan = new JPanel();
 		JButton btNovo = new JButton("NOVO");
 		pan.add(btNovo, BorderLayout.EAST);
 		add(pan, BorderLayout.SOUTH);
@@ -35,7 +36,7 @@ public class FrameTable extends JFrame {
 			    frame.setVisible(true); 
 			    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			}
-		});
+		});*/
 	}
 	public static void main(String[] args) {
 		FrameTable f = new FrameTable();
